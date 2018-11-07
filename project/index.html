@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container {
+            position: relative;
+        }
+        #overlay {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: whitesmoke;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Richard Steele 1607539 WebGl procedural mesh generation example</title>
+</head>
+
+<body>
+<div class="container">
+    <canvas id="glcanvas" width="1620" height="1620*1.5"></canvas><!--800 1200    1620 2430-->
+    <!--  <canvas id="displaycanvas"></canvas>  -->
+    <div id="overlay">
+        <H1>Richard Steele 1607539 WebGl procedural mesh generation example</H1>
+        <P>Grids</P>
+        <ul>
+            <li>Both are procedurally generated, the lower one has simplex noise applied.</li>
+            <li>Mesh sine wave is applied by the shader.</li>
+        </ul>
+        <P>Polyhedrons</P>
+        <ul>
+            <li>Rotate on x and y axis in relation to mouse/touch movement on x and y.</li>
+            <li>Click mouse button/tap screen to subdivide the objects meshes.</li>
+            <ul>
+                <li>Be warned, large subdivisions will be slow! very large loops.</li>
+                <li>Benchmarks on subdivision 5:  (subdivision 6 will be much longer)</li>
+                <ul>
+                    <li>42 seconds on my old thinkpad x220.</li>
+                    <li><2 seconds on my new aero 15w.</li>
+                </ul>
+                <li>Left in larger subdivisions as a test, refresh page if you don't want to wait.</li>
+            </ul>
+            <li>New meshes replace the previous meshes, non-repeating vertices and indices list are procedurally generated.</li>
+        </ul>
+        <P>Parallax effect on everything when scrolling up and down.</P>
+        <P>The intention of this WebGL canvas is to ultimately act as a background to my personal website.</P>
+        <ul>
+            <li>For example, the grids would act as section separators.</li>
+            <li>That's also why I've left the aesthetic subtle. I could have made it colourful etc.</li>
+            <li>But I like it.</li>
+        </ul>
+        <button onclick="WebGlClassInst.ResetToBaseShapes()">Reset to base shapes</button>
+        <H3>Adjust the window size and aspect, and start scrolling down!</H3>
+    </div>
+</div>
+</body>
+
+<script src="Lib/matrix.js"></script>
+<script src="Lib/Vector3.js"></script>
+<script src="Lib/Vector3.js"></script>
+<script src="Lib/EventListeners.js"></script>
+<script src="Lib/Noise.js"></script>
+
+<script src="Dictionarys/BufferHandler.js"></script>
+<script src="Dictionarys/ShaderHandler.js"></script>
+<script src="Dictionarys/RenderTransformHandler.js"></script>
+
+<script src="Shaders/FragmentShaders.js"></script>
+<script src="Shaders/VertexShaders.js"></script>
+
+<script src="MeshGeneration/MeshSubdivider.js"></script>
+<script src="MeshGeneration/GridGenerator.js"></script>
+<script src="MeshGeneration/icosahedronGenerator.js"></script>
+<script src="MeshGeneration/TetrahedronGenerator.js"></script>
+
+<script src="WebGL/WebGlClass.js"></script>
+</html>
+
+<script>
+    WebGlClassInst.Run();
+    /**		_____		_______		 ___    ___		   ______		 ________	 ________	   ______
+     *	  / _____\	   / _____ \	|   \  |   \	  |  __  \		|_____  |	|_____  |	  / ____ \
+     *	 / /		  /	/	  \ \	| |\ \ | |\ \	  | |__/ |			 / /		 / /	 / /	\ \
+     *	| |		 __	 | |	   | |	| | \ \| | \ \	  |  ___/		__   \ \    __   \ \    |		 | |
+     *	 \ \____/ /	  \ \_____/ /	| |  \___|	\ \	  | |			\ \___/ /   \ \___/ /    \ \____/ /
+     *	  \______/	   \_______/	|_|			 \_\  |_|			 \_____/	 \_____/	  \______/
+     *
+     *	https://github.com/Stompyy/bsc-live-coding
+     */
+</script>
