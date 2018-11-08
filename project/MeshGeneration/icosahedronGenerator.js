@@ -37,4 +37,5 @@ class IcosahedronGenerator
     }
 }
 
+// Singleton class
 IcoGeneratorInst = new IcosahedronGenerator();

@@ -110,15 +110,4 @@ class Vector3
             ), centre
         );
     }
-
-    static SimpleExtrudePoint(v)
-    {
-        return Vector3.Normalise(v);
-        return Vector3.Add(
-            Vector3.Multiply(
-                Vector3.Normalise(Vector3.Subtract(v, centre)),
-                radius
-            ), centre
-        );
-    }
 }

@@ -1,4 +1,11 @@
-// Holds the information about an object's buffer info needed to draw in webGL
+/**
+ * Holds the information about an object's buffer info needed to draw in webGL
+ * @param _vertices
+ * @param _indices
+ * @param _normals
+ * @param _colours
+ * @param _glContext
+ */
 class BufferInfo
 {
     constructor(_vertices, _indices, _normals, _colours, _glContext)
@@ -26,7 +33,11 @@ class BufferInfo
 
     }
 }
-// Dictionary storing all buffer infos
+
+/**
+ * Handler class manages a dictionary of buffers information
+ * @param _glContext is needed for the BufferInfo instantiating which creates and binds the buffers to the glContext
+ */
 class BufferHandler
 {
     constructor(_glContext)
@@ -38,6 +49,7 @@ class BufferHandler
         this.FillWithWhite();
     }
 
+    // Fills an list with the colour white. This project is fully greyscale
     FillWithWhite()
     {
         const white = [1.0, 1.0, 1.0, 1.0];
@@ -47,6 +59,7 @@ class BufferHandler
         }
     }
 
+    // Adds a new buffer to the dictionary. As shapes are symmetrical geometric polygons, normals all face out from the centre so are equivalent to the vertex position
     AddNewBuffer(index, vertices, indices, normals = vertices, colours = this.colours)
     {
         this.buffers[index] = new BufferInfo(vertices, indices, normals, colours, this.glContext);

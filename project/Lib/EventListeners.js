@@ -5,6 +5,7 @@ const touchMove = 'touchmove';
 const touchStart = 'touchstart';
 const onKeyPress = 'onkeypress';
 
+// The sensitivity of the mouse/touch movement to object rotation in the WebGlClassInst
 const sensitivity = 1.0/100;
 
 window.addEventListener(scroll, function()

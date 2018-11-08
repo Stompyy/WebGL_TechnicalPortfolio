@@ -15,25 +15,6 @@ class TetrahedronGenerator
         ];
         this.indices = this.baseShapeIndices;
     }
-    /*
-          /\v0
-      v4/___\v5
-      / \  / \
-  v1/__v7\/___\v2
-          /\v0
-      v5/___\v6
-      / \  / \
-  v2/__v8\/___\v3
-          /\v0
-      v6/___\v4
-      / \  / \
-  v3/__v9\/___\v1
-          /\v1
-      v7/___\v9
-      / \  / \
-  v2/__v8\/___\v3
-
-     */
 
     ResetToBaseShape()
     {
@@ -42,4 +23,5 @@ class TetrahedronGenerator
     }
 }
 
+// Singleton class
 TetGeneratorInst = new TetrahedronGenerator();
