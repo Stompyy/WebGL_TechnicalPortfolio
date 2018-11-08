@@ -61,8 +61,8 @@ class GridGenerator
             indicesList = indicesList.concat([x,x+1]);
         }
 
-        // Look at each row in turn, += width shows the offset into the vertex array for the next row
-        for (let y = 0; y < total; y += width)
+        // Look at each row in turn, += width shows the offset into the vertex array for the next row. ignore the last row as already drawn
+        for (let y = 0; y < total-width; y += width)
         {
             // Look at each entry in that row except the last one, that gets drawn in later
             for (let x = 0; x < width-1; x++)

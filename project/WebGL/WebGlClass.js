@@ -163,19 +163,8 @@ class WebGlClass
             false,
             normalMatrix.m);
 
-        // Get the vertexCount
-        let vertexCount = 0;
-        // Grid generator generates too many indices currently. Have to set manually.
-        if (drawType === this.glContext.LINES)
-        {
-            vertexCount = 5162;// 30*30: 5162 // 20*20: 2242 // 10*10: 522
-        }
-        else
-        {
-            // vertexCount is the number of indices
-            vertexCount = this.bufferHandler.buffers[bufferIndex].indices.length;
-        }
-
+        // vertexCount is the number of indices
+        let vertexCount = this.bufferHandler.buffers[bufferIndex].indices.length;
         const offset = 0;
 
         // Tell WebGL to draw it!
@@ -246,8 +235,8 @@ class WebGlClass
     // Procedurally subdivides the polyhedron into new shapes
     StepSubdivisions()
     {
-        // Any more than 6 will enter too large a loop and loop time will take minutes to perform
-        if (this.meshSubDivisions < 6)
+        // Any more than this will enter too large a loop and loop time will take minutes to perform
+        if (this.meshSubDivisions < 5)
         {
             // Increment the count
             this.meshSubDivisions++;
@@ -325,7 +314,7 @@ class WebGlClass
     // Set the gl canvas size and gl context viewport size to the current window size. Doing this before every draw will account for window resizing
     ResizeCanvas()
     {
-        this.glContext.canvas.width = window.innerWidth;//Math.floor(window.innerWidth * this.devicePixelRatio);
+        this.glContext.canvas.width = window.innerWidth;
         this.glContext.canvas.height = Math.floor(window.innerWidth * 1.5);
         this.glContext.viewport(0, 0, this.glContext.canvas.width, this.glContext.canvas.height);
     }
