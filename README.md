@@ -2,9 +2,10 @@
 
 Richard Steele 1607539
 
-Hosted on server at:
+~~Hosted on server at:~~
 
-http://178.62.65.124/
+~~http://178.62.65.124/~~
+(no longer available. I now have improved the program according to feedback and host it as part of my portfolio website at https://classdeclaration.com/)
 
 
 # Richard Steele 1607539 WebGl procedural mesh generation example
